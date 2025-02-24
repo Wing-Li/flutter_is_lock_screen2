@@ -1,6 +1,6 @@
 name: is_lock_screen2
 description: Detects if device is in lock screen. Useful for determining whether app entered background due to locking screen or leaving app.
-version: 2.0.1
+version: 2.0.2
 homepage: https://github.com/Wing-Li/flutter_is_lock_screen2
 
 environment:

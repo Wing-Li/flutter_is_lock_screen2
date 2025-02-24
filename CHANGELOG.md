@@ -1,3 +1,7 @@
+## [2.0.2] - 2025-02-24
+
+* updating the min and the target sdk and the kotlin version
+
 ## [2.0.1] - 2023-7-23
 
 * Update Android Gradle
