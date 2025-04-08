@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'is_lock_screen2'
-  s.version          = '2.0.2'
+  s.version          = '2.0.3'
   s.summary          = 'Detects if device is in lock screen.'
   s.description      = <<-DESC
 Detects if device is in lock screen. Useful for determining whether app entered background due to locking screen or leaving app.

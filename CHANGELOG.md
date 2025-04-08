@@ -1,3 +1,9 @@
+## [2.0.3] - 2025-04-08
+
+- removing name space from AndroidManifest.xml and moving it to build.gradle
+- upgrading gradle version to 8.4
+- removing the registerWith, it's no longer needed in the new FlutterPlugin
+
 ## [2.0.2] - 2025-02-24
 
 * updating the min and the target sdk and the kotlin version
