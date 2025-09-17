@@ -1,3 +1,13 @@
+## [2.0.4] - 2025-09-17
+
+- Updated the .gitignore file, added Android build-related directories, and the pubspec.lock file.
+- Updated compileSdkVersion from 34 to 35, Java version from 1.8 to 11, and Kotlin version from jdk7 to jdk8 in build.gradle.
+- Updated example/android/build.gradle to remove jcenter() and update Kotlin version to 2.1.0.
+- Added pluginManagement to settings.gradle to configure the Flutter SDK path.
+- Added plugin declarations to app/build.gradle and updated compileSdkVersion and targetSdkVersion to 35.
+- Updated dependency versions in pubspec.lock to ensure compatibility with the latest Dart and Flutter SDKs.
+- Deleted the MainActivity.kt file to simplify the project structure.
+
 ## [2.0.3] - 2025-04-08
 
 - removing name space from AndroidManifest.xml and moving it to build.gradle
