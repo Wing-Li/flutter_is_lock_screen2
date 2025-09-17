@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'is_lock_screen2'
-  s.version          = '2.0.3'
+  s.version          = '2.0.4'
   s.summary          = 'Detects if device is in lock screen.'
   s.description      = <<-DESC
 Detects if device is in lock screen. Useful for determining whether app entered background due to locking screen or leaving app.
@@ -15,7 +15,7 @@ Detects if device is in lock screen. Useful for determining whether app entered 
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
-  s.platform = :ios, '8.0'
+  s.platform = :ios, '11.0'
 
   # Flutter.framework does not contain a i386 slice. Only x86_64 simulators are supported.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'VALID_ARCHS[sdk=iphonesimulator*]' => 'x86_64' }
