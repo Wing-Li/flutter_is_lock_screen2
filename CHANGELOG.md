@@ -1,3 +1,10 @@
+## [2.0.5] - 2026-06-12
+
+- Improved the iOS lock-screen heuristic by combining protected data availability, protected data notifications, and screen brightness.
+- Added Dart MethodChannel tests for `true`, `false`, `null`, platform exceptions, and missing plugin registration.
+- Cleaned up analyzer hints in the example app and adjusted `.gitignore` for release packaging.
+- Documented that iOS does not provide a stable public lock-screen state API, so iOS detection remains heuristic and should not be treated as a security source of truth.
+
 ## [2.0.4] - 2025-09-17
 
 - Updated the .gitignore file, added Android build-related directories, and the pubspec.lock file.
