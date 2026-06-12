@@ -12,6 +12,8 @@ Import library and call the following method.
 
 Note that this only works on physical device for iOS.
 
+iOS does not provide a stable public API for directly reading whether the device is currently on the lock screen. On iOS, this plugin combines protected data availability, protected data notifications, and screen brightness as a heuristic. It is useful for common lock-screen background transitions, but it should not be treated as the only source of truth for security-sensitive lock state.
+
 ```dart
 bool? result = await isLockScreen();
 ```
@@ -36,6 +38,6 @@ void didChangeAppLifecycleState(AppLifecycleState state) async {
 
 An alternative to this plugin is [hardware_buttons](https://pub.dev/packages/hardware_buttons), which uses non-public API (`com.apple.springboard.lockcomplete`) on iOS to detect lock button usage and violates App Store requirements.
 
-To circumvent this issue, this plugin detects whether iOS device is in lock screen by checking if screen brightness is 0.0 (the user-adjustable minimum is >0.01).
+To circumvent this issue, this plugin detects whether iOS device is likely in lock screen by combining protected data availability, protected data notifications, and a brightness heuristic.
 
 On android, this plugin uses `KeyguardManager` and `PowerManager` API to check if device is secured or display is off as suggested [in this gist](https://gist.github.com/Jeevuz/4ec01688083670b1f3f92af64e44c112). A similar flow was tested on iOS with `LocalAuthentication` and `UIApplication.shared.isProtectedDataAvailable` but failed due to long grace period of the system lock down. The flag always return true the moment screen is locked.
