@@ -1,3 +1,11 @@
+## [2.1.0] - 2026-06-22
+
+- Added `isLockScreenOrThrow()` and `IsLockScreenException` so callers can distinguish missing plugin registration, platform errors, and unexpected `null` platform responses.
+- Kept `isLockScreen()` compatible with previous releases by returning `null` for all failure modes.
+- Updated Android Gradle Plugin to 8.6.1 and Gradle wrappers to 8.7 so the Android build chain officially supports API 35.
+- Replaced deprecated Android Gradle DSL entries and removed obsolete `android.enableR8` properties.
+- Increased the Gradle heap size used by the plugin and example Android builds to avoid Jetifier transform out-of-memory failures.
+
 ## [2.0.5] - 2026-06-12
 
 - Improved the iOS lock-screen heuristic by combining protected data availability, protected data notifications, and screen brightness.

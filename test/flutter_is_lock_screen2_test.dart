@@ -59,4 +59,60 @@ void main() {
 
     expect(result, isNull);
   });
+
+  test('isLockScreenOrThrow returns the platform boolean result', () async {
+    messenger.setMockMethodCallHandler(channel, (_) async => true);
+
+    final result = await isLockScreenOrThrow();
+
+    expect(result, isTrue);
+  });
+
+  test('isLockScreenOrThrow throws when the platform returns null', () async {
+    messenger.setMockMethodCallHandler(channel, (_) async => null);
+
+    expect(
+      isLockScreenOrThrow,
+      throwsA(
+        isA<IsLockScreenException>()
+            .having((error) => error.code, 'code', 'null_result')
+            .having((error) => error.message, 'message', contains('null')),
+      ),
+    );
+  });
+
+  test('isLockScreenOrThrow wraps platform exceptions with details', () async {
+    messenger.setMockMethodCallHandler(channel, (_) async {
+      throw PlatformException(
+        code: 'NativeError',
+        message: 'Native error',
+        details: {'reason': 'test'},
+      );
+    });
+
+    expect(
+      isLockScreenOrThrow,
+      throwsA(
+        isA<IsLockScreenException>()
+            .having((error) => error.code, 'code', 'NativeError')
+            .having((error) => error.message, 'message', 'Native error')
+            .having((error) => error.details, 'details', {'reason': 'test'})
+            .having((error) => error.cause, 'cause', isA<PlatformException>()),
+      ),
+    );
+  });
+
+  test('isLockScreenOrThrow throws a missing plugin exception wrapper', () async {
+    messenger.setMockMethodCallHandler(channel, null);
+
+    expect(
+      isLockScreenOrThrow,
+      throwsA(
+        isA<IsLockScreenException>()
+            .having((error) => error.code, 'code', 'missing_plugin')
+            .having((error) => error.message, 'message', contains('registered'))
+            .having((error) => error.cause, 'cause', isA<MissingPluginException>()),
+      ),
+    );
+  });
 }

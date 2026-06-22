@@ -18,6 +18,19 @@ iOS does not provide a stable public API for directly reading whether the device
 bool? result = await isLockScreen();
 ```
 
+`isLockScreen()` keeps the original nullable API for compatibility. It returns `null` when the plugin is not registered for the current platform, when native code returns `null`, or when the platform call fails.
+
+If your app needs to distinguish these failure modes, use `isLockScreenOrThrow()` instead:
+
+```dart
+try {
+  final bool result = await isLockScreenOrThrow();
+  print('is lock screen: $result');
+} on IsLockScreenException catch (error) {
+  print('failed to check lock screen: ${error.code} ${error.message}');
+}
+```
+
 You will probably observe the AppLifecycleState with a WidgetsBindingObserver and call this when app is in background:
 
 ```dart
