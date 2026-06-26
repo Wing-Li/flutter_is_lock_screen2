@@ -1,3 +1,7 @@
+## [2.0.6] - 2026-06-26
+
+- Add Swift Package Manager support for iOS.
+
 ## [2.0.5] - 2026-06-12
 
 - Improved the iOS lock-screen heuristic by combining protected data availability, protected data notifications, and screen brightness.

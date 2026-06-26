@@ -33,3 +33,7 @@ example/android/.kotlin/
 example/android/app/.cxx/
 example/ios/Flutter/ephemeral/
 
+# Swift Package Manager
+.build/
+.swiftpm/
+
