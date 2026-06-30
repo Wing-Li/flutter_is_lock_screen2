@@ -1,6 +1,12 @@
-## [2.0.6] - 2026-06-26
+## [2.1.0] - 2026-06-30
 
-- Add Swift Package Manager support for iOS.
+- Added `isLockScreenOrThrow()` and `IsLockScreenException` so callers can distinguish missing plugin registration, platform errors, and unexpected `null` platform responses.
+- Kept `isLockScreen()` compatible with previous releases by returning `null` for all failure modes.
+- Added Swift Package Manager (SPM) support for iOS (Flutter 3.44+ default build system).
+- Updated podspec iOS minimum to 12.0 (required by SPM).
+- Updated Android Gradle Plugin to 8.6.1 and Gradle wrappers to 8.7 so the Android build chain officially supports API 35.
+- Replaced deprecated Android Gradle DSL entries and removed obsolete `android.enableR8` properties.
+- Increased the Gradle heap size used by the plugin and example Android builds to avoid Jetifier transform out-of-memory failures.
 
 ## [2.0.5] - 2026-06-12
 
