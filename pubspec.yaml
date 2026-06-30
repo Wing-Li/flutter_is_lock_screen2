@@ -27,4 +27,4 @@ flutter:
         package: com.wingli.is_lock_screen2
         pluginClass: IsLockScreenPlugin
       ios:
-        pluginClass: IsLockScreenPlugin
+        pluginClass: SwiftIsLockScreenPlugin
